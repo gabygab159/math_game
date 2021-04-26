@@ -7,20 +7,19 @@
 #     turn_iterator -> iterate turn number after question is answered.
 
 class Questions
-  attr_reader :evaluate 
- def initialize
-  @first_number = rand(1..20)
-  @second_number = rand(1..20)
-  @answer = @first_number + @second_number
-  @question =  "What is the sum of #{@first_number} and #{@second_number}?"
-  @user_answer = nil
-  @evaluate = nil
- end
+  attr_reader :evaluate
+  def initialize
+    @first_number = rand(1..20)
+    @second_number = rand(1..20)
+    @answer = @first_number + @second_number
+    @question =  "What is the sum of #{@first_number} and #{@second_number}?"
+    @user_answer = nil
+    @evaluate = nil  
+  end
 
 
   def is_correct_answer
     puts @question
-    
     @user_answer = gets.chomp.to_i
 
     if @user_answer != @answer
@@ -31,6 +30,11 @@ class Questions
       @evaluate = true
     end
   end
+
+  def player_changer
+    @current_player += 1
+  end
+
 end
 
 
